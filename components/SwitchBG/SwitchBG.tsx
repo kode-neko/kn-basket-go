@@ -1,9 +1,6 @@
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { ThemeBG } from '../../model';
-import { StoreType } from '../../store';
-import { useSelector } from 'react-redux';
 import { themesBG } from '../../themes';
-import { useState } from 'react';
 
 const themeStyle = (theme: ThemeBG) => StyleSheet.create({
   cont: {
@@ -39,31 +36,26 @@ const themeStyle = (theme: ThemeBG) => StyleSheet.create({
     boxSizing: 'border-box'
   },
   right: {
-    top: 1,
     left: 18
   }
 });
 
 type SwitchBGProps = {
+  theme: ThemeBG,
   isRight: boolean,
   Icon: JSX.Element,
   onClickSW: (isRight: boolean) => void
 }
 
-const SwitchBG: React.FC<SwitchBGProps> = ({ isRight, Icon, onClickSW }: SwitchBGProps) => {
-  const theme = useSelector((state: StoreType) => state.app.theme);
-  const [ isRightHere, setIsRightHere ] = useState(isRight);
+const SwitchBG: React.FC<SwitchBGProps> = ({ theme, isRight, Icon, onClickSW }: SwitchBGProps) => {
   const style = themeStyle(theme);
-  const right = isRightHere ? style.right : {};
+  const right = isRight ? style.right : {};
   const positionBtn = { ...style.btn, ...right };
-  const handleClick = () => {
-    onClickSW(!isRightHere);
-    setIsRightHere(!isRightHere);
-  };
+  const handleClick = () => onClickSW(!isRight);
 
   return (
     <TouchableOpacity style={style.cont} onPress={handleClick}>
-      <View style={style.icon}>{Icon}</View>
+      <View style={style.icon} onPointerDown={handleClick}>{Icon}</View>
       <View>
         <View style={{ position: 'relative' }}>
             <View style={style.back} />

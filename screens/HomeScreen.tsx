@@ -27,27 +27,27 @@ const style = StyleSheet.create({
 const themeIcon = (theme: ThemeBG) => theme === ThemeBG.CONTRAST ? themesBG[theme].colorsBG.light : themesBG[theme].colorsBG.dark;
 
 const HomeScreen = () => {
-  const { t } = useTranslation();
   const theme = useSelector((state: StoreType) => state.app.theme);
-  const dispacth = useDispatch();
+  const { t } = useTranslation();
   const [ isAudio, setIsAudio ] = useState(true);
   const [ isContrast, setIsContrast ] = useState(true);
+  const dispacth = useDispatch();
 
-  const handlePressBtn= () => {
+  const handlePressBtn = () => {
     console.log('pressed');
   };
   const handleClickAudio = (isAudioSel: boolean) => {
-    setIsAudio(!isAudio);
+    setIsAudio(isAudioSel);
   };
   const handleClickTheme = (isContrastSelected: boolean) => {
     const theme = isContrastSelected ? ThemeBG.CONTRAST : ThemeBG.LIGHT;
     dispacth(actionsApp.changeTheme(theme));
-    setIsContrast(!isContrast);
+    setIsContrast(isContrastSelected);
   };
 
   return (
     <BGView>
-      <BGMainTitle>{t('title')}</BGMainTitle>
+      <BGMainTitle>{t('titles.page')}</BGMainTitle>
       <View style={style.cont}>
         <BGMainBtn 
           color='green' 
@@ -75,8 +75,8 @@ const HomeScreen = () => {
         />
       </View>
       <View style={style.opts}>
-        <SwitchBG isRight={true} Icon={<FontAwesome5 name="volume-down" size={24} color={themeIcon(theme)} />} onClickSW={handleClickAudio} />
-        <SwitchBG isRight={true} Icon={<FontAwesome5 name="paint-roller" size={24} color={themeIcon(theme)} />} onClickSW={handleClickTheme} />
+        <SwitchBG theme={theme} isRight={isAudio} Icon={<FontAwesome5 name="volume-down" size={24} color={themeIcon(theme)} />} onClickSW={handleClickAudio} />
+        <SwitchBG theme={theme} isRight={isContrast} Icon={<FontAwesome5 name="paint-roller" size={24} color={themeIcon(theme)} />} onClickSW={handleClickTheme} />
       </View>
     </BGView>
   );
