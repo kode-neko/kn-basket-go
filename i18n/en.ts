@@ -1,10 +1,10 @@
 export default {
   test: 'English Test',
   section: {
-    shooping: 'Shooping',
-    dishes: 'Dishes',
-    history: 'History',
-    config: 'Config'
+    createList: 'Create Shooping List',
+    createListMeals: 'Create List from Menu',
+    meals: 'Meals',
+    listHistory: 'List History',
   },
   titles: {
     page: 'Basket Go',

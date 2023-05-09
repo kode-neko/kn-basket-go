@@ -1,10 +1,10 @@
 export default {
   test: 'Test Español',
   section: {
-    shooping: 'Comprar',
-    dishes: 'Platos',
-    history: 'Historial',
-    config: 'Config'
+    createList: 'Crear Lista Compra',
+    createListMeals: 'Crear Lista desde un Menú',
+    meals: 'Comidas',
+    listHistory: 'Historial de Listas',
   },
   titles: {
     page: 'Basket Go',

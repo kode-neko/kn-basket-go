@@ -8,16 +8,13 @@ const themeStyle = (theme: ThemeBG, color: string) => StyleSheet.create({
   btn: {
     display: 'flex',
     backgroundColor: themesBG[theme].colorsBG[color],
-    textAlign: 'center',
-    width: 128,
-    height: 128,
     borderRadius: themesBG[theme].sizes.borderradius,
     justifyContent: 'space-between',
     padding: themesBG.global.sizes.small
   },
   icon: {
-    height: 64,
-    fontSize: 64,
+    height: 52,
+    fontSize: 52,
     textAlign: 'center'
   },
   text: {

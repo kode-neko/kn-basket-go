@@ -11,8 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const style = StyleSheet.create({
   cont: {
     display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     justifyContent: 'center',
     gap: themesBG.contrast.sizes.base
   },
@@ -50,26 +49,26 @@ const HomeScreen = () => {
         <MainBtnBG 
           color='green' 
           onPress={handlePressBtn} 
-          label={t('section.shooping')} 
-          Icon={<FontAwesome5 name="shopping-basket" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+          label={t('section.createList')} 
+          Icon={<FontAwesome5 name="shopping-basket" size={42} color={themesBG[theme].colorsBG.dark}/>} 
         />
         <MainBtnBG 
           color='pink' 
           onPress={handlePressBtn} 
-          label={t('section.dishes')} 
-          Icon={<FontAwesome5 name="utensils" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+          label={t('section.createListMeals')} 
+          Icon={<FontAwesome5 name="book-open" size={42} color={themesBG[theme].colorsBG.dark}/>} 
         />
         <MainBtnBG 
-          color='yellow' 
-          onPress={handlePressBtn} 
-          label={t('section.history')} 
-          Icon={<FontAwesome5 name="list-ul" size={64} color={themesBG[theme].colorsBG.dark}/>} 
-        />
-        <MainBtnBG
           color='blue' 
           onPress={handlePressBtn} 
-          label={t('section.config')} 
-          Icon={<FontAwesome5 name="tools" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+          label={t('section.meals')} 
+          Icon={<FontAwesome5 name="utensils" size={42} color={themesBG[theme].colorsBG.dark}/>} 
+        />
+        <MainBtnBG
+          color='yellow' 
+          onPress={handlePressBtn} 
+          label={t('section.listHistory')} 
+          Icon={<FontAwesome5 name="list-ul" size={42} color={themesBG[theme].colorsBG.dark}/>} 
         />
       </View>
       <View style={style.opts}>
