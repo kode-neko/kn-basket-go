@@ -11,7 +11,7 @@ const themeStyle = (theme: ThemeBG) => StyleSheet.create({
   }
 });
 
-const BGView: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
+const ViewBG: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
   const theme = useSelector((state: StoreType) => state.app.theme);
   return (
     <View style={themeStyle(theme).cont} {...props}>
@@ -20,4 +20,4 @@ const BGView: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
   );
 };
 
-export default BGView;
+export default ViewBG;

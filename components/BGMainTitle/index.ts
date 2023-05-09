@@ -1,1 +1,0 @@
-export { default as BGMainTitle } from './BGMainTitle';

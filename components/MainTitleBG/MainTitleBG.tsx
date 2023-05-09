@@ -14,7 +14,7 @@ const themeStyle = (theme: ThemeBG) => StyleSheet.create({
   }
 });
 
-const BGMainTitle: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
+const MainTitleBG: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
   const theme = useSelector((state: StoreType) => state.app.theme);
   return (
     <Text style={themeStyle(theme).text} {...props}>
@@ -23,4 +23,4 @@ const BGMainTitle: React.FC = ({ children, ...props }: React.PropsWithChildren) 
   );
 };
 
-export default BGMainTitle;
+export default MainTitleBG;

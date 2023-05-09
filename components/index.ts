@@ -1,6 +1,6 @@
-export { BGView } from './BGView';
-export { BGText } from './BGText';
-export { BGMainTitle } from './BGMainTitle';
-export { BGMainBtn } from './BGMainBtn';
+export { ViewBG } from './ViewBG';
+export { TextBG } from './TextBG';
+export { MainTitleBG } from './MainTitleBG';
+export { MainBtnBG } from './MainBtnBG';
 export { SwitchBG } from './SwitchBG';
 export { HeaderBG } from './HeaderBG';

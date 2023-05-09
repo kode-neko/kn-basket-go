@@ -12,7 +12,7 @@ const themeStyle = (theme: ThemeBG) => StyleSheet.create({
   }
 });
 
-const BGText: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
+const TextBG: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
   const theme = useSelector((state: StoreType) => state.app.theme);
   console.log(theme);
   return (
@@ -22,4 +22,4 @@ const BGText: React.FC = ({ children, ...props }: React.PropsWithChildren) => {
   );
 };
 
-export default BGText;
+export default TextBG;

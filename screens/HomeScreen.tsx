@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { BGView, BGMainTitle, BGMainBtn, SwitchBG } from '../components';
+import { ViewBG, MainTitleBG, MainBtnBG, SwitchBG } from '../components';
 import { useTranslation } from 'react-i18next'; 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { ThemeBG } from '../model';
@@ -44,28 +44,28 @@ const HomeScreen = () => {
   };
 
   return (
-    <BGView>
-      <BGMainTitle>{t('titles.page')}</BGMainTitle>
+    <ViewBG>
+      <MainTitleBG>{t('titles.page')}</MainTitleBG>
       <View style={style.cont}>
-        <BGMainBtn 
+        <MainBtnBG 
           color='green' 
           onPress={handlePressBtn} 
           label={t('section.shooping')} 
           Icon={<FontAwesome5 name="shopping-basket" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
-        <BGMainBtn 
+        <MainBtnBG 
           color='pink' 
           onPress={handlePressBtn} 
           label={t('section.dishes')} 
           Icon={<FontAwesome5 name="utensils" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
-        <BGMainBtn 
+        <MainBtnBG 
           color='yellow' 
           onPress={handlePressBtn} 
           label={t('section.history')} 
           Icon={<FontAwesome5 name="list-ul" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
-        <BGMainBtn 
+        <MainBtnBG
           color='blue' 
           onPress={handlePressBtn} 
           label={t('section.config')} 
@@ -76,7 +76,7 @@ const HomeScreen = () => {
         <SwitchBG theme={theme} isRight={isAudio} Icon={<FontAwesome5 name="volume-down" size={24} color={themeColorReverse(theme)} />} onClickSW={handleClickAudio} />
         <SwitchBG theme={theme} isRight={isContrast} Icon={<FontAwesome5 name="paint-roller" size={24} color={themeColorReverse(theme)} />} onClickSW={handleClickTheme} />
       </View>
-    </BGView>
+    </ViewBG>
   );
 };
 

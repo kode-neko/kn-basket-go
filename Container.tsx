@@ -6,7 +6,7 @@ import { themesBG } from './themes';
 import { useSelector } from 'react-redux';
 import { StoreType } from './store';
 import { HeaderBG } from './components';
-import { useTranslation } from 'react-i18next';
+import { themeColorDirect } from './themes';
 
 // Create Main bar
 const Stack = createNativeStackNavigator();

@@ -7,7 +7,6 @@ import { ThemeBG } from '../../model';
 const themeStyle = (theme: ThemeBG, color: string) => StyleSheet.create({
   btn: {
     display: 'flex',
-    elevation: 22,
     backgroundColor: themesBG[theme].colorsBG[color],
     textAlign: 'center',
     width: 128,
@@ -37,7 +36,7 @@ interface BGMainProps extends React.PropsWithChildren, ButtonProps {
   Icon: JSX.Element
 }
 
-const BGMainBtn: React.FC<BGMainProps> = ({ label, Icon, color = 'green' }: BGMainProps) => {
+const MainBtnBG: React.FC<BGMainProps> = ({ label, Icon, color = 'green' }: BGMainProps) => {
   const theme = useSelector((state: StoreType) => state.app.theme);
   const style = themeStyle(theme, color);
   return (
@@ -48,4 +47,4 @@ const BGMainBtn: React.FC<BGMainProps> = ({ label, Icon, color = 'green' }: BGMa
   );
 };
 
-export default BGMainBtn;
+export default MainBtnBG;
