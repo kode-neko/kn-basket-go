@@ -7,9 +7,11 @@ const global = {
     // base: 12,
     // double: 24,
     // triple: 36,
+    small: 12,
     base: 24,
     double: 36,
     triple: 72,
+    borderradius: 4
   },
   font: {
     basesize: 24,
@@ -23,7 +25,8 @@ const lightBG = { ...lighBase, ...global };
 
 const themesBG = {
   [ThemeBG.CONTRAST]: contrastBG,
-  [ThemeBG.LIGHT]: lightBG
+  [ThemeBG.LIGHT]: lightBG,
+  global
 };
 
 export {

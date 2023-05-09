@@ -9,13 +9,21 @@ import { StoreType } from './store';
 // Create Main bar
 const Stack = createNativeStackNavigator();
 
+const Header = (props) => {
+  console.log(props);
+  return (
+    <div>Patata</div>
+  );
+};
+
 export default function Container() {
   const theme = useSelector((state: StoreType) => state.app.theme);
   return (
     <NavigationContainer theme={themesBG[theme]} >
-      <Stack.Navigator 
+      <Stack.Navigator
         screenOptions={{
           headerShadowVisible: false,
+          // header: Header
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>

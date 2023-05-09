@@ -1,30 +1,83 @@
-import { Button } from 'react-native';
-import { useSelector } from 'react-redux';
-import { BGView, BGText } from '../components';
-import { useDispatch } from 'react-redux';
-import { StoreType, actionsApp } from '../store';
+import { StyleSheet, View } from 'react-native';
+import { BGView, BGMainTitle, BGMainBtn, SwitchBG } from '../components';
+import { useTranslation } from 'react-i18next'; 
+import { FontAwesome5 } from '@expo/vector-icons';
 import { ThemeBG } from '../model';
-import { useTranslation } from 'react-i18next';
+import { themesBG } from '../themes';
+import { useState } from 'react';
+import { StoreType, actionsApp } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+
+const style = StyleSheet.create({
+  cont: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: themesBG.contrast.sizes.base
+  },
+  opts: {
+    display: 'flex',
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'flex-end'
+  }
+});
+
+const themeIcon = (theme: ThemeBG) => theme === ThemeBG.CONTRAST ? themesBG[theme].colorsBG.light : themesBG[theme].colorsBG.dark;
 
 const HomeScreen = () => {
-  const { t, i18n } = useTranslation();
-  const { theme, lang } = useSelector((state: StoreType) => state.app);
-  const dispatch = useDispatch();
-  
-  const handlePressBtnTheme = () => {
-    dispatch(actionsApp.changeTheme(theme === ThemeBG.CONTRAST ? ThemeBG.LIGHT : ThemeBG.CONTRAST));
-  };
+  const { t } = useTranslation();
+  const theme = useSelector((state: StoreType) => state.app.theme);
+  const dispacth = useDispatch();
+  const [ isAudio, setIsAudio ] = useState(true);
+  const [ isContrast, setIsContrast ] = useState(true);
 
-  const handlePressBtnLang = () => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
+  const handlePressBtn= () => {
+    console.log('pressed');
+  };
+  const handleClickAudio = (isAudioSel: boolean) => {
+    setIsAudio(!isAudio);
+  };
+  const handleClickTheme = (isContrastSelected: boolean) => {
+    const theme = isContrastSelected ? ThemeBG.CONTRAST : ThemeBG.LIGHT;
+    dispacth(actionsApp.changeTheme(theme));
+    setIsContrast(!isContrast);
   };
 
   return (
     <BGView>
-      <BGText>Home Screen</BGText>
-      <Button onPress={handlePressBtnTheme} title="change Theme" />
-      <BGText>{t('test')}</BGText>
-      <Button onPress={handlePressBtnLang} title="change Theme" />
+      <BGMainTitle>{t('title')}</BGMainTitle>
+      <View style={style.cont}>
+        <BGMainBtn 
+          color='green' 
+          onPress={handlePressBtn} 
+          label={t('buy')} 
+          Icon={<FontAwesome5 name="shopping-basket" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+        />
+        <BGMainBtn 
+          color='pink' 
+          onPress={handlePressBtn} 
+          label={t('dishes')} 
+          Icon={<FontAwesome5 name="utensils" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+        />
+        <BGMainBtn 
+          color='yellow' 
+          onPress={handlePressBtn} 
+          label={t('history')} 
+          Icon={<FontAwesome5 name="list-ul" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+        />
+        <BGMainBtn 
+          color='blue' 
+          onPress={handlePressBtn} 
+          label={t('config')} 
+          Icon={<FontAwesome5 name="tools" size={64} color={themesBG[theme].colorsBG.dark}/>} 
+        />
+      </View>
+      <View style={style.opts}>
+        <SwitchBG isRight={true} Icon={<FontAwesome5 name="volume-down" size={24} color={themeIcon(theme)} />} onClickSW={handleClickAudio} />
+        <SwitchBG isRight={true} Icon={<FontAwesome5 name="paint-roller" size={24} color={themeIcon(theme)} />} onClickSW={handleClickTheme} />
+      </View>
     </BGView>
   );
 };

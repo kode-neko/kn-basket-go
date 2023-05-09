@@ -6,7 +6,8 @@ import { themesBG } from '../../themes';
 
 const themeStyle = (theme: ThemeBG) => StyleSheet.create({
   cont: {
-    padding: themesBG[theme].sizes.base
+    padding: themesBG[theme].sizes.base,
+    flex: 1
   }
 });
 
