@@ -56,7 +56,8 @@ const HeaderBG: React.FC<NativeStackHeaderProps> = ({ back, navigation, route: {
           />
         </TouchableOpacity>
       }
-      <View style={themeStyle(theme).right}>
+      { name !== 'home' && 
+        <View style={themeStyle(theme).right}>
         <FontAwesome5
           name={titleIcon[name]}
           size={24}
@@ -64,6 +65,7 @@ const HeaderBG: React.FC<NativeStackHeaderProps> = ({ back, navigation, route: {
         />
         <Text style={themeStyle(theme).title}>{t(`titles.${name}`)}</Text>
       </View>
+      }
     </View>
   );
 };
