@@ -1,16 +1,19 @@
 export default {
   test: 'Test Español',
   section: {
-    buy: 'Comprar',
-    dishes: 'Plato',
+    shooping: 'Comprar',
+    dishes: 'Platos',
     history: 'Historial',
     config: 'Config'
   },
   titles: {
     page: 'Basket Go',
+    home: 'Inicio',
     dish: 'Plato',
     product: 'Producto',
-    ingredient: 'Ingrediente'
+    ingredient: 'Ingrediente',
+    shop: 'Tienda',
+    history: 'Historial'
   },
   labels: {
 

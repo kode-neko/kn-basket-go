@@ -1,6 +1,11 @@
 import { ThemeBG } from '../model';
 import { default as contrastBase } from './contrast';
 import { default as lighBase } from './light';
+import {
+  themeColorDirect,
+  themeColorReverse,
+  themeColorHeader
+} from './utils';
 
 const global = {
   sizes: {
@@ -32,5 +37,8 @@ const themesBG = {
 export {
   contrastBG,
   lightBG,
-  themesBG
+  themesBG,
+  themeColorDirect,
+  themeColorReverse,
+  themeColorHeader
 };

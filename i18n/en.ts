@@ -1,16 +1,19 @@
 export default {
   test: 'English Test',
   section: {
-    buy: 'Buy',
+    shooping: 'Shooping',
     dishes: 'Dishes',
     history: 'History',
     config: 'Config'
   },
   titles: {
     page: 'Basket Go',
+    home: 'Home',
     dish: 'Dish',
     product: 'Product',
-    ingredient: 'Ingredient'
+    ingredient: 'Ingredient',
+    shop: 'Shop',
+    history: 'History'
   },
   labels: {
 

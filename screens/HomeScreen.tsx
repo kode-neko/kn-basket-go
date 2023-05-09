@@ -3,7 +3,7 @@ import { BGView, BGMainTitle, BGMainBtn, SwitchBG } from '../components';
 import { useTranslation } from 'react-i18next'; 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { ThemeBG } from '../model';
-import { themesBG } from '../themes';
+import { themeColorReverse, themesBG } from '../themes';
 import { useState } from 'react';
 import { StoreType, actionsApp } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,8 +23,6 @@ const style = StyleSheet.create({
     alignItems: 'flex-end'
   }
 });
-
-const themeIcon = (theme: ThemeBG) => theme === ThemeBG.CONTRAST ? themesBG[theme].colorsBG.light : themesBG[theme].colorsBG.dark;
 
 const HomeScreen = () => {
   const theme = useSelector((state: StoreType) => state.app.theme);
@@ -52,31 +50,31 @@ const HomeScreen = () => {
         <BGMainBtn 
           color='green' 
           onPress={handlePressBtn} 
-          label={t('buy')} 
+          label={t('section.shooping')} 
           Icon={<FontAwesome5 name="shopping-basket" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
         <BGMainBtn 
           color='pink' 
           onPress={handlePressBtn} 
-          label={t('dishes')} 
+          label={t('section.dishes')} 
           Icon={<FontAwesome5 name="utensils" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
         <BGMainBtn 
           color='yellow' 
           onPress={handlePressBtn} 
-          label={t('history')} 
+          label={t('section.history')} 
           Icon={<FontAwesome5 name="list-ul" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
         <BGMainBtn 
           color='blue' 
           onPress={handlePressBtn} 
-          label={t('config')} 
+          label={t('section.config')} 
           Icon={<FontAwesome5 name="tools" size={64} color={themesBG[theme].colorsBG.dark}/>} 
         />
       </View>
       <View style={style.opts}>
-        <SwitchBG theme={theme} isRight={isAudio} Icon={<FontAwesome5 name="volume-down" size={24} color={themeIcon(theme)} />} onClickSW={handleClickAudio} />
-        <SwitchBG theme={theme} isRight={isContrast} Icon={<FontAwesome5 name="paint-roller" size={24} color={themeIcon(theme)} />} onClickSW={handleClickTheme} />
+        <SwitchBG theme={theme} isRight={isAudio} Icon={<FontAwesome5 name="volume-down" size={24} color={themeColorReverse(theme)} />} onClickSW={handleClickAudio} />
+        <SwitchBG theme={theme} isRight={isContrast} Icon={<FontAwesome5 name="paint-roller" size={24} color={themeColorReverse(theme)} />} onClickSW={handleClickTheme} />
       </View>
     </BGView>
   );

@@ -3,3 +3,4 @@ export { BGText } from './BGText';
 export { BGMainTitle } from './BGMainTitle';
 export { BGMainBtn } from './BGMainBtn';
 export { SwitchBG } from './SwitchBG';
+export { HeaderBG } from './HeaderBG';
